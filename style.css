@@ -7,6 +7,8 @@ body {
     background-image: url('Team Image.jpg');
     background-size: cover;
     background-position: center;
+    /* Adjust brightness and opacity */
+    filter: brightness(70%) opacity(0.8);
 }
 
 header {
