@@ -15,10 +15,13 @@
             margin: 20px;
             text-align: justify;
         }
-        img {
+        .image-container {
+            max-width: 800px; /* Adjust the maximum width as needed */
+            margin: 0 auto;
+        }
+        .image-container img {
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
             max-width: 100%;
             height: auto;
         }
@@ -37,7 +40,9 @@
         </nav>
     </header>
     <main>
-        <img src="Landslide image.jpg" alt="Landslide Image">
+        <div class="image-container">
+            <img src="Landslide image.jpg" alt="Landslide Image">
+        </div>
         <section>
             <h2>Introduction</h2>
             <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides can be triggered by various factors, including heavy rainfall, earthquakes, volcanic activity, slope instability, and human activities such as deforestation or improper land use.</p>
