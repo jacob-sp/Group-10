@@ -69,9 +69,15 @@
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_play_button_icon_%282013-2017%29.svg/2048px-YouTube_play_button_icon_%282013-2017%29.svg.png') no-repeat center;
             background-size: cover;
             cursor: pointer;
+            z-index: 1;
         }
         .video-container iframe {
-            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
         .blog-section {
             width: 100%;
@@ -125,45 +131,4 @@
                 <section>
                     <h2>Factors Contributing to Landslides</h2>
                     <p>Landslides can occur due to several factors. The most common triggers are excessive rainfall or water accumulation, which increases the weight and pore pressure in the soil or rock, reducing its stability. Earthquakes can also induce landslides by shaking the ground and destabilizing slopes. Other factors include slope angle, geology, vegetation cover, human activities that alter the natural stability of slopes, and changes in groundwater levels.</p>
-                </section>
-            </div>
-        </div>
-        <div class="section-container">
-            <div class="video-container" onclick="playVideo()">
-                <img src="https://img.youtube.com/vi/FltmDxQcPuk/hqdefault.jpg" alt="Video Thumbnail">
-                <div class="play-button"></div>
-                <iframe id="video" src="https://www.youtube.com/embed/FltmDxQcPuk?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="video-details">
-                <section>
-                    <h2>Monitoring of Landslides</h2>
-                    <p>Here we are going to see some basic monitoring of the landslide and a video that explains clearly.</p>
-                </section>
-                <section>
-                    <p>Geotechnical investigations, slope stability analysis, and remote sensing technologies are used to assess landslide hazards.</p>
-                </section>
-                <section>
-                    <p>Monitoring systems, including inclinometers, piezometers, and ground-based or satellite-based radar, can provide real-time data on slope movements and trigger early warning systems.</p>
-                </section>
-            </div>
-        </div>
-        <div class="blog-section">
-            <h2>Recent Blog Posts</h2>
-            <div class="blog-post">
-                <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">
-                    <img src="Papua New Guinea Blog.jpg" alt="Papua New Guinea Blog">
-                    <span>Papua New Guinea</span>
-                </a>
-                <div>
-                    <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">Landslide: Scores of villagers feared dead</a>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
-    </footer>
-    <script>
-        function playVideo() {
-            const videoContainer = document.querySelector('.video-container');
-            videoContainer
+                </section
