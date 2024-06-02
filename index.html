@@ -84,7 +84,7 @@
         }
         .blog-post img {
             width: 120px;
-            height: 80px;
+            height: 120px;
             margin-right: 20px;
             object-fit: cover;
         }
@@ -150,14 +150,12 @@
         <div class="blog-section">
             <h2>Recent Blog Posts</h2>
             <div class="blog-post">
+                <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">
+                    <img src="Papua New Guinea Blog.jpg" alt="Papua New Guinea Blog">
+                    <span>Papua New Guinea</span>
+                </a>
                 <div>
-                    <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">Papua New Guinea</a>
-                    <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">
-                        <img src="Papua New Guinea Blog.jpg" alt="Papua New Guinea Blog">
-                    </a>
-                </div>
-                <div>
-                    <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">Papua New Guinea Landslide: Scores of villagers feared dead</a>
+                    <a href="https://apnews.com/article/papua-new-guinea-landslide-4743a701cbd8deb17263b8fd9b954083" target="_blank">Landslide: Scores of villagers feared dead</a>
                 </div>
             </div>
         </div>
@@ -168,11 +166,4 @@
     <script>
         function playVideo() {
             const videoContainer = document.querySelector('.video-container');
-            videoContainer.querySelector('img').style.display = 'none';
-            videoContainer.querySelector('.play-button').style.display = 'none';
-            videoContainer.querySelector('iframe').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
-
+            videoContainer
