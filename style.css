@@ -1,13 +1,16 @@
-/* Global styles */
+/* style.css */
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-image: url('Team Image');
+    background-size: cover;
+    background-position: center;
 }
 
 header {
-    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent background */
+    background-color: #4CAF50;
     color: white;
     padding: 1em 0;
     text-align: center;
@@ -15,10 +18,8 @@ header {
 
 nav ul {
     list-style-type: none;
-    padding: 0;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -27,67 +28,36 @@ nav ul li {
 }
 
 nav ul li a {
+    color: white;
     text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    display: inline-block;
 }
 
 nav ul li a:hover {
-    background-color: #4CAF50;
-    color: white;
+    text-decoration: underline;
 }
 
 main {
     margin: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+}
+
+.team-member {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.gallery img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    background-color: white;
+.team-member img {
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 footer {
-    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent background */
+    background-color: #4CAF50;
     color: white;
     text-align: center;
     padding: 1em 0;
     position: fixed;
     width: 100%;
     bottom: 0;
-}
-
-/* Additional styles for the contact page */
-address {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    font-style: normal;
-}
-
-address p {
-    margin: 0 0 10px;
-}
-
-address a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-address a:hover {
-    text-decoration: underline;
 }
