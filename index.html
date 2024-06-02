@@ -14,7 +14,13 @@
         main {
             margin: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
+        }
+        .top-section {
+            display: flex;
+            align-items: center;
+            width: 100%;
         }
         .image-container {
             max-width: 40%;
@@ -43,6 +49,32 @@
             color: white;
             text-decoration: none;
         }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            margin: 20px 0;
+        }
+        .video-container img {
+            width: 100%;
+            cursor: pointer;
+        }
+        .video-container .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_play_button_icon_%282013-2017%29.svg/2048px-YouTube_play_button_icon_%282013-2017%29.svg.png') no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 315px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -58,22 +90,36 @@
         </nav>
     </header>
     <main>
-        <div class="image-container">
-            <img src="Landslide image.jpg" alt="Landslide Image">
+        <div class="top-section">
+            <div class="image-container">
+                <img src="Landslide image.jpg" alt="Landslide Image">
+            </div>
+            <div class="content">
+                <section>
+                    <h2>Introduction</h2>
+                    <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides can be triggered by various factors, including heavy rainfall, earthquakes, volcanic activity, slope instability, and human activities such as deforestation or improper land use.</p>
+                </section>
+                <section>
+                    <h2>Factors Contributing to Landslides</h2>
+                    <p>Landslides can occur due to several factors. The most common triggers are excessive rainfall or water accumulation, which increases the weight and pore pressure in the soil or rock, reducing its stability. Earthquakes can also induce landslides by shaking the ground and destabilizing slopes. Other factors include slope angle, geology, vegetation cover, human activities that alter the natural stability of slopes, and changes in groundwater levels.</p>
+                </section>
+            </div>
         </div>
-        <div class="content">
-            <section>
-                <h2>Introduction</h2>
-                <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides can be triggered by various factors, including heavy rainfall, earthquakes, volcanic activity, slope instability, and human activities such as deforestation or improper land use.</p>
-            </section>
-            <section>
-                <h2>Factors Contributing to Landslides</h2>
-                <p>Landslides can occur due to several factors. The most common triggers are excessive rainfall or water accumulation, which increases the weight and pore pressure in the soil or rock, reducing its stability. Earthquakes can also induce landslides by shaking the ground and destabilizing slopes. Other factors include slope angle, geology, vegetation cover, human activities that alter the natural stability of slopes, and changes in groundwater levels.</p>
-            </section>
+        <div class="video-container" onclick="playVideo()">
+            <img src="https://img.youtube.com/vi/FltmDxQcPuk/hqdefault.jpg" alt="Video Thumbnail">
+            <div class="play-button"></div>
+            <iframe id="video" src="https://www.youtube.com/embed/FltmDxQcPuk?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
+    <script>
+        function playVideo() {
+            document.querySelector('.video-container img').style.display = 'none';
+            document.querySelector('.play-button').style.display = 'none';
+            document.querySelector('.video-container iframe').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
