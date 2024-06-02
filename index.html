@@ -19,24 +19,24 @@
         }
         .section-container {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             width: 100%;
             margin-bottom: 20px;
         }
         .image-container, .video-container {
-            max-width: 40%;
+            width: 45%;
+            height: 315px;
             margin-right: 20px;
-            height: 315px; /* Ensure consistent height */
-            width: 100%; /* Ensure consistent width */
         }
         .image-container img, .video-container img, .video-container iframe {
             display: block;
-            max-width: 100%;
-            height: 100%; /* Ensure consistent height */
-            object-fit: cover; /* Ensure the image/video fits nicely */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .content, .video-details {
             flex: 1;
+            max-width: 55%;
         }
         .content section, .video-details section {
             margin-bottom: 20px;
@@ -120,8 +120,8 @@
                 <iframe id="video" src="https://www.youtube.com/embed/FltmDxQcPuk?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="video-details">
-                <h2>Monitoring of Landslides</h2>
                 <section>
+                    <h2>Monitoring of Landslides</h2>
                     <p>Here we are going to see some basic monitoring of the landslide and a video that explains clearly.</p>
                 </section>
                 <section>
