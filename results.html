@@ -51,6 +51,8 @@
         .image-box h2 {
             font-size: 1.2em;
             margin: 0.5em 0;
+            cursor: pointer;
+            color: #007BFF;
         }
         @media (max-width: 768px) {
             .image-box {
@@ -61,6 +63,40 @@
             .image-box {
                 width: calc(100% - 40px); /* 1 image per row for very small screens */
             }
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -79,23 +115,23 @@
     <main>
         <div class="image-container">
             <div class="image-box">
-                <h2>Aspect</h2>
+                <h2 id="dtm-button">DTM</h2>
                 <a href="ASPECT.png" data-lightbox="results" data-title="Aspect"><img src="ASPECT.png" alt="Aspect"></a>
             </div>
             <div class="image-box">
-                <h2>Slope</h2>
+                <h2 id="slope-button">Slope</h2>
                 <a href="SLOPE1.png" data-lightbox="results" data-title="Slope"><img src="SLOPE1.png" alt="Slope"></a>
             </div>
             <div class="image-box">
-                <h2>DTM</h2>
+                <h2 id="aspect-button">Aspect</h2>
                 <a href="DTM.png" data-lightbox="results" data-title="DTM"><img src="DTM.png" alt="DTM"></a>
             </div>
             <div class="image-box">
-                <h2>NDVI</h2>
+                <h2 id="ndvi-button">NDVI</h2>
                 <a href="NDVI.png" data-lightbox="results" data-title="NDVI"><img src="NDVI.png" alt="NDVI"></a>
             </div>
             <div class="image-box">
-                <h2>Landslide Susceptibility Map</h2>
+                <h2 id="landslide-button">Landslide Susceptibility Map</h2>
                 <a href="LANDSLIDE SUSCEPTIBILITY MAP.png" data-lightbox="results" data-title="Landslide Susceptibility Map"><img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map"></a>
             </div>
         </div>
@@ -104,5 +140,99 @@
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script>
+        // Get the modal
+        var dtmModal = document.getElementById("dtm-modal");
+        var slopeModal = document.getElementById("slope-modal");
+        var aspectModal = document.getElementById("aspect-modal");
+        var ndviModal = document.getElementById("ndvi-modal");
+        var landslideModal = document.getElementById("landslide-modal");
+
+        // Get the button that opens the modal
+        var dtmBtn = document.getElementById("dtm-button");
+        var slopeBtn = document.getElementById("slope-button");
+        var aspectBtn = document.getElementById("aspect-button");
+        var ndviBtn = document.getElementById("ndvi-button");
+        var landslideBtn = document.getElementById("landslide-button");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close");
+
+        // When the user clicks the button, open the modal 
+        dtmBtn.onclick = function() {
+            dtmModal.style.display = "block";
+        }
+        slopeBtn.onclick = function() {
+            slopeModal.style.display = "block";
+        }
+        aspectBtn.onclick = function() {
+            aspectModal.style.display = "block";
+        }
+        ndviBtn.onclick = function() {
+            ndviModal.style.display = "block";
+        }
+        landslideBtn.onclick = function() {
+            landslideModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        for (var i = 0; i < span.length; i++) {
+            span[i].onclick = function() {
+                this.parentElement.parentElement.style.display = "none";
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+    <!-- Modal HTML -->
+    <div id="dtm-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Digital Terrain Models (DTM)</h2>
+            <p>Digital Terrain Models (DTM) sometimes called Digital Elevation Models (DEM) is a topographic model of the bare Earth that can be manipulated by computer programs. The data files contain the elevation data of the terrain in a digital format which relates to a rectangular grid.</p>
+            <p>In a Digital Terrain Model (DTM), the values 192 and 438 likely represent elevations at specific locations on the model.</p>
+            <p><strong>Elevation Units:</strong> The meaning of the values (192 and 438) depends on the units used in the DTM. It could be meters, feet, or another unit of elevation. Without additional information about the DTM, it's impossible to say for sure.</p>
+            <p><strong>Relative or Absolute Elevation:</strong> The values could represent relative elevation (height compared to a local datum) or absolute elevation (height above sea level). This information is typically specified in the DTM documentation.</p>
+            <p><strong>Terrain Variation:</strong> The range between 192 and 438 indicates a difference in elevation of 246 units. This signifies a variation in terrain height across the area covered by the DTM. Higher Value Likely Means Higher Elevation: In most DTMs, higher values correspond to higher elevations. So, in this case, 438 likely represents a higher point than 192.</p>
+            <p><strong>Visualizing the Terrain:</strong> DTMs are often used to generate contour maps that visualize the elevation changes. If you have access to the complete DTM or a derived contour map, you can get a clearer picture of the terrain represented by these values.</p>
+        </div>
+    </div>
+
+    <div id="slope-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Slope</h2>
+            <p>Details about Slope...</p>
+        </div>
+    </div>
+
+    <div id="aspect-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Aspect</h2>
+            <p>Details about Aspect...</p>
+        </div>
+    </div>
+
+    <div id="ndvi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>NDVI</h2>
+            <p>Details about NDVI...</p>
+        </div>
+    </div>
+
+    <div id="landslide-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Landslide Susceptibility Map</h2>
+            <p>Details about Landslide Susceptibility Map...</p>
+        </div>
+    </div>
 </body>
 </html>
