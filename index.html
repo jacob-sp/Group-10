@@ -4,53 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Landslide Susceptibility Mapping</title>
-    <style>
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        main {
-            margin: 20px;
-            text-align: center;
-        }
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px; /* Adjust the maximum width of the video */
-            margin: 0 auto;
-        }
-        .video-container img {
-            cursor: pointer;
-        }
-        .video-container img:hover {
-            opacity: 0.8;
-        }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: url('https://i.ibb.co/6rBcH4f/play-button.png') no-repeat; /* Play button image */
-            background-size: contain;
-            cursor: pointer;
-        }
-        .video-iframe {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to Landslide Susceptibility Mapping</h1>
+        <h1>Landslide Susceptibility Mapping</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -61,29 +19,36 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h2>Watch Our Video</h2>
-            <div class="video-container">
-                <img src="https://i.ibb.co/f01rWjN/thumbnail.jpg" alt="Video Thumbnail" width="100%"> <!-- Video thumbnail image -->
-                <div class="play-button" onclick="playVideo()"></div>
-                <iframe class="video-iframe" src="https://www.youtube.com/embed/N-gXK72VMWs?autoplay=0" frameborder="0" allowfullscreen></iframe> <!-- YouTube video URL -->
-            </div>
+        <section id="data-acquisition">
+            <h2>Data Acquisition and Preparation</h2>
+            <h3>Landslide Inventory</h3>
+            <p>A crucial first step is collecting data on past landslides in the area. This data can come from historical records, field surveys, or remote sensing techniques like satellite imagery.</p>
+            <h3>Terrain Data</h3>
+            <p>Detailed information on the physical landscape is vital. This includes data on:</p>
+            <ul>
+                <li>Slope: Steeper slopes are generally more susceptible.</li>
+                <li>Aspect: South-facing slopes in the Northern Hemisphere tend to receive more sunlight, leading to drier conditions and potentially increased risk.</li>
+                <li>Elevation: Landslides are more common in mountainous regions.</li>
+                <li>Drainage: Areas with poor drainage or high water saturation are more prone.</li>
+            </ul>
+        </section>
+        <section id="map-validation">
+            <h2>Map Validation and Refinement</h2>
+            <p>The accuracy of the model is assessed by comparing predicted landslide susceptibility with actual landslide occurrences. The model may be refined based on the validation results, and the map is updated accordingly.</p>
+        </section>
+        <section id="susceptibility-hazard-risk">
+            <h2>Susceptibility vs. Hazard vs. Risk</h2>
+            <ul>
+                <li><strong>Susceptibility:</strong> Likelihood of a landslide occurring.</li>
+                <li><strong>Hazard:</strong> Potential for damage or loss from a landslide event (combines susceptibility and the presence of elements at risk like buildings or infrastructure).</li>
+                <li><strong>Risk:</strong> The combination of susceptibility and vulnerability (potential for loss).</li>
+            </ul>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
-    
-    <script>
-        function playVideo() {
-            var iframe = document.querySelector('.video-iframe');
-            var thumbnail = document.querySelector('.video-container img');
-            var playButton = document.querySelector('.play-button');
-            
-            iframe.style.display = 'block';
-            thumbnail.style.display = 'none';
-            playButton.style.display = 'none';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
