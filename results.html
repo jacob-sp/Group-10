@@ -10,6 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         header {
             background-color: #4CAF50;
@@ -32,33 +33,32 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .image-container div {
+        .image-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 10px;
-            flex: 1 0 30%; /* Adjust to have 3 images per row */
+            padding: 10px;
+            width: calc(33.333% - 40px); /* 3 images per row with margin */
             box-sizing: border-box;
-            position: relative;
-            cursor: pointer;
         }
-        .image-container img {
+        .image-box img {
             max-width: 100%;
             height: auto;
         }
-        .image-container h2 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            margin: 0;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            cursor: pointer;
+        .image-box h2 {
+            font-size: 1.2em;
+            margin: 0.5em 0;
         }
-        .image-container div:hover h2 {
-            opacity: 1;
+        @media (max-width: 768px) {
+            .image-box {
+                width: calc(50% - 40px); /* 2 images per row for smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .image-box {
+                width: calc(100% - 40px); /* 1 image per row for very small screens */
+            }
         }
     </style>
 </head>
@@ -76,281 +76,30 @@
     </header>
     <main>
         <div class="image-container">
-            <div id="aspect-button">
-                <img src="ASPECT.png" alt="Aspect">
+            <div class="image-box">
                 <h2>Aspect</h2>
+                <img src="ASPECT.png" alt="Aspect">
             </div>
-            <div id="slope-button">
-                <img src="SLOPE1.png" alt="Slope">
+            <div class="image-box">
                 <h2>Slope</h2>
+                <img src="SLOPE1.png" alt="Slope">
             </div>
-            <div id="dtm-button">
-                <img src="DTM.png" alt="DTM">
+            <div class="image-box">
                 <h2>DTM</h2>
+                <img src="DTM.png" alt="DTM">
             </div>
-        </div>
-        <div class="image-container">
-            <div id="ndvi-button">
-                <img src="NDVI.png" alt="NDVI">
+            <div class="image-box">
                 <h2>NDVI</h2>
+                <img src="NDVI.png" alt="NDVI">
             </div>
-            <div id="landslide-button">
-                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
+            <div class="image-box">
                 <h2>Landslide Susceptibility Map</h2>
+                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
             </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
-
-    <!-- Modals for detailed information -->
-    <div id="aspect-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Aspect</h2>
-            <p>Aspect values typically range between 0 and 360 degrees and represent the horizontal direction that a slope faces.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="slope-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Slope</h2>
-            <p>Slope values typically indicate the steepness of a terrain and are expressed as a percentage.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="dtm-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>DTM</h2>
-            <p>Digital Terrain Models (DTM) sometimes called Digital Elevation Models (DEM) is a topographic model of the bare Earth that can be manipulated by computer programs.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="ndvi-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>NDVI</h2>
-            <p>NDVI (Normalized Difference Vegetation Index) values typically range from -1 to 1 and are used to assess vegetation health and biomass.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="landslide-modal" class="modal
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results - Landslide Susceptibility Mapping</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        main {
-            margin: 20px;
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 20px;
-        }
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .image-container div {
-            margin: 10px;
-            flex: 1 0 30%; /* Adjust to have 3 images per row */
-            box-sizing: border-box;
-            position: relative;
-            cursor: pointer;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-        }
-        .image-container h2 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            margin: 0;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            cursor: pointer;
-        }
-        .image-container div:hover h2 {
-            opacity: 1;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Results</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="results.html">Results</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="image-container">
-            <div id="aspect-button">
-                <img src="ASPECT.png" alt="Aspect">
-                <h2>Aspect</h2>
-            </div>
-            <div id="slope-button">
-                <img src="SLOPE1.png" alt="Slope">
-                <h2>Slope</h2>
-            </div>
-            <div id="dtm-button">
-                <img src="DTM.png" alt="DTM">
-                <h2>DTM</h2>
-            </div>
-        </div>
-        <div class="image-container">
-            <div id="ndvi-button">
-                <img src="NDVI.png" alt="NDVI">
-                <h2>NDVI</h2>
-            </div>
-            <div id="landslide-button">
-                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
-                <h2>Landslide Susceptibility Map</h2>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
-    </footer>
-
-    <!-- Modals for detailed information -->
-    <div id="aspect-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Aspect</h2>
-            <p>Aspect values typically range between 0 and 360 degrees and represent the horizontal direction that a slope faces.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="slope-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Slope</h2>
-            <p>Slope values typically indicate the steepness of a terrain and are expressed as a percentage.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="dtm-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>DTM</h2>
-            <p>Digital Terrain Models (DTM) sometimes called Digital Elevation Models (DEM) is a topographic model of the bare Earth that can be manipulated by computer programs.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="ndvi-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>NDVI</h2>
-            <p>NDVI (Normalized Difference Vegetation Index) values typically range from -1 to 1 and are used to assess vegetation health and biomass.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <div id="landslide-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Landslide Susceptibility Map</h2>
-            <p>A Landslide Susceptibility Map with values ranging from 0 to 100 indicates the relative likelihood of landslides occurring in different areas.</p>
-            <!-- Add more detailed information here -->
-        </div>
-    </div>
-
-    <script>
-        // Get the modal elements
-        var aspectModal = document.getElementById('aspect-modal');
-        var slopeModal = document.getElementById('slope-modal');
-        var dtmModal = document.getElementById('dtm-modal');
-        var ndviModal = document.getElementById('ndvi-modal');
-        var landslideModal = document.getElementById('landslide-modal');
-
-        // Get the buttons that open the modals
-        var aspectBtn = document.getElementById('aspect-button');
-        var slopeBtn = document.getElementById('slope-button');
-        var dtmBtn = document.getElementById('dtm-button');
-        var ndviBtn = document.getElementById('ndvi-button');
-        var landslideBtn = document.getElementById('landslide-button');
-
-        // When the user clicks on the button, open the modal
-        aspectBtn.onclick = function() {
-            aspectModal.style.display = 'block';
-        }
-        slopeBtn.onclick = function() {
-            slopeModal.style.display = 'block';
-        }
-        dtmBtn.onclick = function() {
-            dtmModal.style.display = 'block';
-        }
-        ndviBtn.onclick = function() {
-            ndviModal.style.display = 'block';
-        }
-        landslideBtn.onclick = function() {
-            landslideModal.style.display = 'block';
-        }
-
-        // Get the <span> element that closes the modal
-                var closeBtns = document.getElementsByClassName('close');
-
-        // When the user clicks on <span> (x), close the modal
-        for (var i = 0; i < closeBtns.length; i++) {
-            closeBtns[i].onclick = function() {
-                aspectModal.style.display = 'none';
-                slopeModal.style.display = 'none';
-                dtmModal.style.display = 'none';
-                ndviModal.style.display = 'none';
-                landslideModal.style.display = 'none';
-            }
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == aspectModal || event.target == slopeModal || event.target == dtmModal || event.target == ndviModal || event.target == landslideModal) {
-                aspectModal.style.display = 'none';
-                slopeModal.style.display = 'none';
-                dtmModal.style.display = 'none';
-                ndviModal.style.display = 'none';
-                landslideModal.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
-
