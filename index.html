@@ -1,148 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Landslide Susceptibility Mapping</title>
-    <style>
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        main {
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .section-container {
-            display: flex;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        .image-container, .video-container {
-            max-width: 45%; /* Adjusted max-width for better alignment */
-            margin-right: 20px;
-            height: 315px; /* Ensure consistent height */
-        }
-        .image-container img, .video-container img, .video-container iframe {
-            display: block;
-            max-width: 100%;
-            height: 100%; /* Ensure consistent height */
-            object-fit: cover; /* Ensure the image/video fits nicely */
-        }
-        .content, .video-details {
-            flex: 1;
-            max-width: 55%; /* Adjusted max-width for better alignment */
-        }
-        .content section, .video-details section {
-            margin-bottom: 20px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .video-container {
-            position: relative;
-        }
-        .video-container img {
-            cursor: pointer;
-        }
-        .video-container .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_play_button_icon_%282013-2017%29.svg/2048px-YouTube_play_button_icon_%282013-2017%29.svg.png') no-repeat center;
-            background-size: cover;
-            cursor: pointer;
-        }
-        .video-container iframe {
-            display: none;
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 20px;
-            position: static;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Landslide Susceptibility Mapping</title>
+  <style>
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1em 0;
+      text-align: center;
+    }
+    main {
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .section-container {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .image-container, .video-container {
+      max-width: 45%; /* Adjusted max-width for better alignment */
+      margin-right: 20px;
+      height: 315px; /* Ensure consistent height */
+    }
+    .image-container img, .video-container img, .video-container iframe {
+      display: block;
+      max-width: 100%;
+      height: 100%; /* Ensure consistent height */
+      object-fit: cover; /* Ensure the image/video fits nicely */
+    }
+    .content, .video-details {
+      flex: 1;
+      max-width: 55%; /* Adjusted max-width for better alignment */
+    }
+    .content section, .video-details section {
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .video-container {
+      position: relative;
+    }
+    .video-container img {
+      cursor: pointer;
+    }
+    .video-container .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_play_button_icon_%282013-2017%29.svg/2048px-YouTube_play_button_icon_%282013-2017%29.svg.png') no-repeat center;
+      background-size: cover;
+      cursor: pointer;
+    }
+    .video-container iframe {
+      display: none;
+    }
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1em 0;
+      margin-top: 20px;
+      position: static;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Landslide Susceptibility Mapping</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="results.html">Results</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="section-container">
-            <div class="image-container">
-                <img src="Landslide image.jpg" alt="Landslide Image">
-            </div>
-            <div class="content">
-                <section>
-                    <h2>Introduction</h2>
-                    <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides can be triggered by various factors, including heavy rainfall, earthquakes, volcanic activity, slope instability, and human activities such as deforestation or improper land use.</p>
-                </section>
-                <section>
-                    <h2>Factors Contributing to Landslides</h2>
-                    <p>Landslides can occur due to several factors. The most common triggers are excessive rainfall or water accumulation, which increases the weight and pore pressure in the soil or rock, reducing its stability. Earthquakes can also induce landslides by shaking the ground and destabilizing slopes. Other factors include slope angle, geology, vegetation cover, human activities that alter the natural stability of slopes, and changes in groundwater levels.</p>
-                </section>
-            </div>
-        </div>
-        <div class="section-container">
-            <div class="video-container" onclick="playVideo()">
-                <img src="https://img.youtube.com/vi/FltmDxQcPuk/hqdefault.jpg" alt="Video Thumbnail">
-                <div class="play-button"></div>
-                <iframe id="video" src="https://www.youtube.com/embed/FltmDxQcPuk?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <div class="video-details">
-                <section>
-                    <h2>Monitoring of Landslides</h2>
-                    <p>Here we are going to see some basic monitoring of the landslide and a video that explains clearly.</p>
-                </section>
-                <section>
-                    <p>Geotechnical investigations, slope stability analysis, and remote sensing technologies are used to assess landslide hazards.</p>
-                </section>
-                <section>
-                    <p>Monitoring systems, including inclinometers, piezometers, and ground-based or satellite-based radar, can provide real-time data on slope movements and trigger early warning systems.</p>
-                </section>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
-    </footer>
-    <script>
-        function playVideo() {
-            const videoContainer = document.querySelector('.video-container');
-            videoContainer.querySelector('img').style.display = 'none';
-            videoContainer.querySelector('.play-button').style.display = 'none';
-            videoContainer.querySelector('iframe').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+  <header>
+    <h1>Welcome to Landslide Susceptibility Mapping</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="section-container">
+      <div class="image-container">
+        <img src="Landslide image.jpg" alt="Landslide Image">
+      </div>
+      <div class="content">
+        <section>
+          <h2>Introduction</h2>
+          <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides
