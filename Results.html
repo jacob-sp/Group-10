@@ -15,6 +15,16 @@
         main {
             margin: 20px;
         }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+            gap: 20px;
+            justify-content: center;
+        }
+        .image-grid img {
+            max-width: 100%;
+            height: auto;
+        }
         footer {
             background-color: #4CAF50;
             color: white;
@@ -39,8 +49,13 @@
         <!-- Your content for the Results page goes here -->
         <section>
             <h2>Results of Landslide Susceptibility Mapping</h2>
-            <p>This section will contain the results of your landslide susceptibility mapping analysis.</p>
-            <p>You can display data, charts, maps, or any other relevant information related to your study.</p>
+            <div class="image-grid">
+                <img src="ASPECT.png" alt="Aspect Image">
+                <img src="SLOPE1.png" alt="Slope Image">
+                <img src="DTM.png" alt="DTM Image">
+                <img src="NDVI.png" alt="NDVI Image">
+                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map Image">
+            </div>
         </section>
     </main>
     <footer>
