@@ -17,25 +17,28 @@
             flex-direction: column;
             align-items: center;
         }
-        .top-section {
+        .section-container {
             display: flex;
             align-items: center;
             width: 100%;
             margin-bottom: 20px;
         }
-        .image-container {
+        .image-container, .video-container {
             max-width: 40%;
             margin-right: 20px;
+            height: 315px; /* Ensure consistent height */
+            width: 100%; /* Ensure consistent width */
         }
-        .image-container img {
+        .image-container img, .video-container img, .video-container iframe {
             display: block;
             max-width: 100%;
-            height: auto;
+            height: 100%; /* Ensure consistent height */
+            object-fit: cover; /* Ensure the image/video fits nicely */
         }
-        .content {
+        .content, .video-details {
             flex: 1;
         }
-        .content section {
+        .content section, .video-details section {
             margin-bottom: 20px;
         }
         nav ul {
@@ -50,21 +53,8 @@
             color: white;
             text-decoration: none;
         }
-        .video-section {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
         .video-container {
             position: relative;
-            max-width: 50%;
-            margin-right: 20px;
-            height: 315px;
-        }
-        .video-container img,
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
         }
         .video-container img {
             cursor: pointer;
@@ -82,9 +72,6 @@
         }
         .video-container iframe {
             display: none;
-        }
-        .video-details {
-            flex: 1;
         }
         footer {
             background-color: #4CAF50;
@@ -111,7 +98,7 @@
         </nav>
     </header>
     <main>
-        <div class="top-section">
+        <div class="section-container">
             <div class="image-container">
                 <img src="Landslide image.jpg" alt="Landslide Image">
             </div>
@@ -126,7 +113,7 @@
                 </section>
             </div>
         </div>
-        <div class="video-section">
+        <div class="section-container">
             <div class="video-container" onclick="playVideo()">
                 <img src="https://img.youtube.com/vi/FltmDxQcPuk/hqdefault.jpg" alt="Video Thumbnail">
                 <div class="play-button"></div>
@@ -134,9 +121,15 @@
             </div>
             <div class="video-details">
                 <h2>Monitoring of Landslides</h2>
-                <p>Here we are going to see some basic monitoring of the landslide and a video that explains clearly.</p>
-                <p>Geotechnical investigations, slope stability analysis, and remote sensing technologies are used to assess landslide hazards.</p> 
-                <p>Monitoring systems, including inclinometers, piezometers, and ground-based or satellite-based radar, can provide real-time data on slope movements and trigger early warning systems.</p>
+                <section>
+                    <p>Here we are going to see some basic monitoring of the landslide and a video that explains clearly.</p>
+                </section>
+                <section>
+                    <p>Geotechnical investigations, slope stability analysis, and remote sensing technologies are used to assess landslide hazards.</p>
+                </section>
+                <section>
+                    <p>Monitoring systems, including inclinometers, piezometers, and ground-based or satellite-based radar, can provide real-time data on slope movements and trigger early warning systems.</p>
+                </section>
             </div>
         </div>
     </main>
