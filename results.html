@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Landslide Susceptibility Mapping</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            margin: 20px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-container div {
+            margin: 10px;
+            flex: 1 0 21%; /* Adjust to have 4 images per row */
+            box-sizing: border-box;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Results</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="image-container">
+            <div>
+                <h2>Aspect</h2>
+                <img src="ASPECT.png" alt="Aspect">
+            </div>
+            <div>
+                <h2>Slope</h2>
+                <img src="SLOPE1.png" alt="Slope">
+            </div>
+            <div>
+                <h2>DTM</h2>
+                <img src="DTM.png" alt="DTM">
+            </div>
+            <div>
+                <h2>NDVI</h2>
+                <img src="NDVI.png" alt="NDVI">
+            </div>
+            <div>
+                <h2>Landslide Susceptibility Map</h2>
+                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
+    </footer>
+</body>
+</html>
