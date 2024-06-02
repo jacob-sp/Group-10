@@ -327,4 +327,30 @@
         }
 
         // Get the <span> element that closes the modal
-        var closeBtns
+                var closeBtns = document.getElementsByClassName('close');
+
+        // When the user clicks on <span> (x), close the modal
+        for (var i = 0; i < closeBtns.length; i++) {
+            closeBtns[i].onclick = function() {
+                aspectModal.style.display = 'none';
+                slopeModal.style.display = 'none';
+                dtmModal.style.display = 'none';
+                ndviModal.style.display = 'none';
+                landslideModal.style.display = 'none';
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == aspectModal || event.target == slopeModal || event.target == dtmModal || event.target == ndviModal || event.target == landslideModal) {
+                aspectModal.style.display = 'none';
+                slopeModal.style.display = 'none';
+                dtmModal.style.display = 'none';
+                ndviModal.style.display = 'none';
+                landslideModal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
