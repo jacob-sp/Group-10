@@ -1,14 +1,8 @@
-/* style.css */
-
+/* Global styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('Team Image.jpg');
-    background-size: cover;
-    background-position: center;
-    /* Adjust brightness and opacity */
-    filter: brightness(70%) opacity(0.8);
 }
 
 header {
@@ -40,18 +34,6 @@ nav ul li a:hover {
 
 main {
     margin: 20px;
-}
-
-.team-member {
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.team-member img {
-    border-radius: 50%;
-    margin-right: 10px;
 }
 
 footer {
