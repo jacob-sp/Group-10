@@ -10,6 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         header {
             background-color: #4CAF50;
@@ -32,14 +33,32 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .image-container div {
+        .image-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 10px;
-            flex: 1 0 21%; /* Adjust to have 4 images per row */
+            padding: 10px;
+            width: calc(33.333% - 40px); /* 3 images per row with margin */
             box-sizing: border-box;
         }
-        .image-container img {
+        .image-box img {
             max-width: 100%;
             height: auto;
+        }
+        .image-box h2 {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+        @media (max-width: 768px) {
+            .image-box {
+                width: calc(50% - 40px); /* 2 images per row for smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .image-box {
+                width: calc(100% - 40px); /* 1 image per row for very small screens */
+            }
         }
     </style>
 </head>
@@ -57,23 +76,23 @@
     </header>
     <main>
         <div class="image-container">
-            <div>
+            <div class="image-box">
                 <h2>Aspect</h2>
                 <img src="ASPECT.png" alt="Aspect">
             </div>
-            <div>
+            <div class="image-box">
                 <h2>Slope</h2>
                 <img src="SLOPE1.png" alt="Slope">
             </div>
-            <div>
+            <div class="image-box">
                 <h2>DTM</h2>
                 <img src="DTM.png" alt="DTM">
             </div>
-            <div>
+            <div class="image-box">
                 <h2>NDVI</h2>
                 <img src="NDVI.png" alt="NDVI">
             </div>
-            <div>
+            <div class="image-box">
                 <h2>Landslide Susceptibility Map</h2>
                 <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
             </div>
