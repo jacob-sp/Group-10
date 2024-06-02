@@ -115,15 +115,15 @@
     <main>
         <div class="image-container">
             <div class="image-box">
-                <h2 id="dtm-button">DTM</h2>
+                <h2 id="aspect-button">ASPECT</h2>
                 <a href="ASPECT.png" data-lightbox="results" data-title="Aspect"><img src="ASPECT.png" alt="Aspect"></a>
             </div>
             <div class="image-box">
-                <h2 id="slope-button">Slope</h2>
+                <h2 id="slope-button">SLOPE1</h2>
                 <a href="SLOPE1.png" data-lightbox="results" data-title="Slope"><img src="SLOPE1.png" alt="Slope"></a>
             </div>
             <div class="image-box">
-                <h2 id="aspect-button">Aspect</h2>
+                <h2 id="dtm-button">DTM</h2>
                 <a href="DTM.png" data-lightbox="results" data-title="DTM"><img src="DTM.png" alt="DTM"></a>
             </div>
             <div class="image-box">
@@ -131,7 +131,7 @@
                 <a href="NDVI.png" data-lightbox="results" data-title="NDVI"><img src="NDVI.png" alt="NDVI"></a>
             </div>
             <div class="image-box">
-                <h2 id="landslide-button">Landslide Susceptibility Map</h2>
+                <h2 id="landslide-button">LANDSLIDE SUSCEPTIBILITY MAP</h2>
                 <a href="LANDSLIDE SUSCEPTIBILITY MAP.png" data-lightbox="results" data-title="Landslide Susceptibility Map"><img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map"></a>
             </div>
         </div>
@@ -207,7 +207,12 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Slope</h2>
-            <p>Details about Slope...</p>
+            <p>The slope values typically indicate the steepness of a terrain and are expressed as a percentage. However, in isolation, slope values ranging from 0 to 66.15 alone (without any context regarding the aspect) are difficult to interpret definitively.</p>
+            <p><strong>Here's why context is important for interpreting slope values:</strong></p>
+            <p>Slope and Aspect are Interrelated: Aspect refers to the direction a slope faces, while slope indicates its steepness. For instance, a north-facing slope with a 20% grade would represent a different level of difficulty compared to a south-facing slope with the same 20% grade.</p>
+            <p>Sunlight Exposure: Steeper slopes, especially those facing south, will receive more direct sunlight throughout the day compared to flatter slopes or those facing north. This can influence factors like vegetation growth, snowmelt patterns, and potential hazards like avalanches.</p>
+            <p><strong>Without Aspect Information:</strong></p>
+            <p>Relative Steepness: While the specific steepness cannot be determined without aspect, we can infer that the slopes range from completely flat (0% grade) to moderately steep (up to 66.15% grade).</p>
         </div>
     </div>
 
@@ -215,7 +220,10 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Aspect</h2>
-            <p>Details about Aspect...</p>
+            <p>Aspect values typically range between 0 and 360 degrees and represent the horizontal direction that a slope faces. In the case of a value ranging from 5.71 to 360, it can be interpreted in two ways:</p>
+            <p><strong>Full Compass Range:</strong> It's possible that the aspect values in this dataset cover the entire compass. Here's a breakdown of what the value might tell you in this scenario:</p>
+            <p>5.71 degrees to 360.00 degrees: This range encompasses all directions: North, Northeast, East, Southeast, South, Southwest, West, and Northwest.</p>
+            <p><strong>Partial Compass Range with Rollover:</strong> Another possibility is that the aspect data uses a specific angular reference system where values exceeding 360 degrees wrap around to zero. In this case, 5.71 could be the starting point and 360 the maximum value before the rollover. To determine the specific directions covered, we would need additional context about the reference system used.</p>
         </div>
     </div>
 
@@ -223,7 +231,13 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>NDVI</h2>
-            <p>Details about NDVI...</p>
+            <p>NDVI (Normalized Difference Vegetation Index) values typically range from -1 to 1 and are used to assess vegetation health and biomass. The range you provided (0.03 to 0.87) covers a significant portion of this spectrum, indicating a variety of vegetation conditions. Here's a breakdown of what the NDVI values in this range might tell you:</p>
+            <p><strong>Low to High Vegetation Cover:</strong> Generally, higher NDVI values correspond to greater green vegetation cover and biomass. So, in this case, 0.03 represents very low vegetation cover, while 0.87 represents high vegetation cover.</p>
+            <p><strong>Specific Interpretations:</strong> Here's a more specific interpretation of different NDVI ranges within the 0.03 to 0.87 range:</p>
+            <p>0.03 - 0.3: This range typically indicates sparse vegetation cover, such as grasslands, deserts, or areas with bare rock or soil.</p>
+            <p>0.3 - 0.6: This moderate NDVI range might represent areas with croplands, shrubs, or savannas.</p>
+            <p>0.6 - 0.87: NDVI values in this higher range likely correspond to areas with dense vegetation cover, such as temperate forests.</p>
+            <p><strong>Variations Within a Region:</strong> It's important to note that these are general interpretations. The specific meaning of an NDVI value can vary depending on the local environment and the type of vegetation typically found in that area.</p>
         </div>
     </div>
 
@@ -231,7 +245,22 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Landslide Susceptibility Map</h2>
-            <p>Details about Landslide Susceptibility Map...</p>
+            <p>A Landslide Susceptibility Map with values ranging from 0 to 100 indicates the relative likelihood of landslides occurring in different areas. Here's how to interpret these values:</p>
+            <p><strong>Higher Value = Higher Susceptibility:</strong> A value closer to 100 signifies a higher susceptibility to landslides. This means the area has features that make it more prone to landslides compared to areas with lower values.</p>
+            <p><strong>Lower Value = Lower Susceptibility:</strong> Conversely, a value closer to 0 suggests a lower susceptibility to landslides. These areas are less likely to experience landslides compared to areas with higher values.</p>
+            <p><strong>Underlying Factors:</strong></p>
+            <p>The specific factors influencing landslide susceptibility are typically considered when creating the map. These factors might include:</p>
+            <p>Slope: Steeper slopes are generally more susceptible to landslides.</p>
+            <p>Geology: The type of rock and soil present in an area plays a role. Loose or weathered materials are more prone to landslides.</p>
+            <p>Vegetation: Vegetation can help stabilize slopes, so areas with less vegetation might have higher susceptibility.</p>
+            <p>Rainfall: Areas with high rainfall are more susceptible, especially during heavy or prolonged downpours.</p>
+            <p>Presence of Faults or Cracks: Weaknesses in the underlying rock can increase landslide risk.</p>
+            <p>Proximity to Rivers or Streams: Erosion by water can destabilize slopes.</p>
+            <p><strong>Map Usage:</strong></p>
+            <p>Landslide susceptibility maps are valuable tools for:</p>
+            <p>Land Use Planning: By identifying areas with high susceptibility, planners can avoid development in high-risk zones or implement mitigation measures.</p>
+            <p>Risk Assessment: Property owners and developers can use the map to assess the landslide risk for specific locations.</p>
+            <p>Emergency Response: The map can be used to identify areas at risk during heavy rainfall events or other triggering factors.</p>
         </div>
     </div>
 </body>
