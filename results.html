@@ -34,45 +34,31 @@
         }
         .image-container div {
             margin: 10px;
-            flex: 1 0 21%; /* Adjust to have 4 images per row */
+            flex: 1 0 30%; /* Adjust to have 3 images per row */
             box-sizing: border-box;
+            position: relative;
+            cursor: pointer;
         }
         .image-container img {
             max-width: 100%;
             height: auto;
-            cursor: pointer;
         }
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-            position: relative;
-        }
-        .close {
+        .image-container h2 {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            margin: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
             cursor: pointer;
         }
-        .close:hover {
-            color: #f00;
+        .image-container div:hover h2 {
+            opacity: 1;
         }
     </style>
 </head>
@@ -90,25 +76,27 @@
     </header>
     <main>
         <div class="image-container">
-            <div>
+            <div id="aspect-button">
+                <img src="ASPECT.png" alt="Aspect">
                 <h2>Aspect</h2>
-                <img src="ASPECT.png" alt="Aspect" id="aspect-button">
             </div>
-            <div>
+            <div id="slope-button">
+                <img src="SLOPE1.png" alt="Slope">
                 <h2>Slope</h2>
-                <img src="SLOPE1.png" alt="Slope" id="slope-button">
             </div>
-            <div>
+            <div id="dtm-button">
+                <img src="DTM.png" alt="DTM">
                 <h2>DTM</h2>
-                <img src="DTM.png" alt="DTM" id="dtm-button">
             </div>
-            <div>
+        </div>
+        <div class="image-container">
+            <div id="ndvi-button">
+                <img src="NDVI.png" alt="NDVI">
                 <h2>NDVI</h2>
-                <img src="NDVI.png" alt="NDVI" id="ndvi-button">
             </div>
-            <div>
+            <div id="landslide-button">
+                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
                 <h2>Landslide Susceptibility Map</h2>
-                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map" id="landslide-button">
             </div>
         </div>
     </main>
@@ -116,7 +104,7 @@
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
 
-    <!-- Modal for Aspect -->
+    <!-- Modals for detailed information -->
     <div id="aspect-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -126,7 +114,6 @@
         </div>
     </div>
 
-    <!-- Modal for Slope -->
     <div id="slope-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -136,7 +123,6 @@
         </div>
     </div>
 
-    <!-- Modal for DTM -->
     <div id="dtm-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -146,7 +132,6 @@
         </div>
     </div>
 
-    <!-- Modal for NDVI -->
     <div id="ndvi-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -156,8 +141,150 @@
         </div>
     </div>
 
-    <!-- Modal for Landslide Susceptibility Map -->
-    <div id="landslide-modal"
+    <div id="landslide-modal" class="modal
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Landslide Susceptibility Mapping</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            margin: 20px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-container div {
+            margin: 10px;
+            flex: 1 0 30%; /* Adjust to have 3 images per row */
+            box-sizing: border-box;
+            position: relative;
+            cursor: pointer;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-container h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            margin: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .image-container div:hover h2 {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Results</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="image-container">
+            <div id="aspect-button">
+                <img src="ASPECT.png" alt="Aspect">
+                <h2>Aspect</h2>
+            </div>
+            <div id="slope-button">
+                <img src="SLOPE1.png" alt="Slope">
+                <h2>Slope</h2>
+            </div>
+            <div id="dtm-button">
+                <img src="DTM.png" alt="DTM">
+                <h2>DTM</h2>
+            </div>
+        </div>
+        <div class="image-container">
+            <div id="ndvi-button">
+                <img src="NDVI.png" alt="NDVI">
+                <h2>NDVI</h2>
+            </div>
+            <div id="landslide-button">
+                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
+                <h2>Landslide Susceptibility Map</h2>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
+    </footer>
+
+    <!-- Modals for detailed information -->
+    <div id="aspect-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Aspect</h2>
+            <p>Aspect values typically range between 0 and 360 degrees and represent the horizontal direction that a slope faces.</p>
+            <!-- Add more detailed information here -->
+        </div>
+    </div>
+
+    <div id="slope-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Slope</h2>
+            <p>Slope values typically indicate the steepness of a terrain and are expressed as a percentage.</p>
+            <!-- Add more detailed information here -->
+        </div>
+    </div>
+
+    <div id="dtm-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>DTM</h2>
+            <p>Digital Terrain Models (DTM) sometimes called Digital Elevation Models (DEM) is a topographic model of the bare Earth that can be manipulated by computer programs.</p>
+            <!-- Add more detailed information here -->
+        </div>
+    </div>
+
+    <div id="ndvi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>NDVI</h2>
+            <p>NDVI (Normalized Difference Vegetation Index) values typically range from -1 to 1 and are used to assess vegetation health and biomass.</p>
+            <!-- Add more detailed information here -->
+        </div>
+    </div>
+
     <div id="landslide-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -169,67 +296,35 @@
 
     <script>
         // Get the modal elements
-        var aspectModal = document.getElementById("aspect-modal");
-        var slopeModal = document.getElementById("slope-modal");
-        var dtmModal = document.getElementById("dtm-modal");
-        var ndviModal = document.getElementById("ndvi-modal");
-        var landslideModal = document.getElementById("landslide-modal");
+        var aspectModal = document.getElementById('aspect-modal');
+        var slopeModal = document.getElementById('slope-modal');
+        var dtmModal = document.getElementById('dtm-modal');
+        var ndviModal = document.getElementById('ndvi-modal');
+        var landslideModal = document.getElementById('landslide-modal');
 
-        // Get the button elements that open the modals
-        var aspectBtn = document.getElementById("aspect-button");
-        var slopeBtn = document.getElementById("slope-button");
-        var dtmBtn = document.getElementById("dtm-button");
-        var ndviBtn = document.getElementById("ndvi-button");
-        var landslideBtn = document.getElementById("landslide-button");
+        // Get the buttons that open the modals
+        var aspectBtn = document.getElementById('aspect-button');
+        var slopeBtn = document.getElementById('slope-button');
+        var dtmBtn = document.getElementById('dtm-button');
+        var ndviBtn = document.getElementById('ndvi-button');
+        var landslideBtn = document.getElementById('landslide-button');
+
+        // When the user clicks on the button, open the modal
+        aspectBtn.onclick = function() {
+            aspectModal.style.display = 'block';
+        }
+        slopeBtn.onclick = function() {
+            slopeModal.style.display = 'block';
+        }
+        dtmBtn.onclick = function() {
+            dtmModal.style.display = 'block';
+        }
+        ndviBtn.onclick = function() {
+            ndviModal.style.display = 'block';
+        }
+        landslideBtn.onclick = function() {
+            landslideModal.style.display = 'block';
+        }
 
         // Get the <span> element that closes the modal
-        var closeBtns = document.getElementsByClassName("close");
-
-        // Function to open the modals
-        function openModal(modal) {
-            modal.style.display = "block";
-        }
-
-        // Function to close the modals
-        function closeModal(modal) {
-            modal.style.display = "none";
-        }
-
-        // Event listeners for opening modals
-        aspectBtn.onclick = function() {
-            openModal(aspectModal);
-        }
-
-        slopeBtn.onclick = function() {
-            openModal(slopeModal);
-        }
-
-        dtmBtn.onclick = function() {
-            openModal(dtmModal);
-        }
-
-        ndviBtn.onclick = function() {
-            openModal(ndviModal);
-        }
-
-        landslideBtn.onclick = function() {
-            openModal(landslideModal);
-        }
-
-        // Event listeners for closing modals
-        for (var i = 0; i < closeBtns.length; i++) {
-            closeBtns[i].onclick = function() {
-                var modal = this.parentElement.parentElement;
-                closeModal(modal);
-            }
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            if (event.target.classList.contains("modal")) {
-                event.target.style.display = "none";
-            }
-        }
-    </script>
-</body>
-</html>
+        var closeBtns
