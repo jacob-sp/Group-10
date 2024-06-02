@@ -4,11 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Landslide Susceptibility Mapping</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            margin: 20px;
+            text-align: center;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Adjust the maximum width of the video */
+            margin: 0 auto;
+        }
+        .video-container img {
+            cursor: pointer;
+        }
+        .video-container img:hover {
+            opacity: 0.8;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: url('https://example.com/play-button.png') no-repeat; /* Replace with your play button image URL */
+            background-size: contain;
+            cursor: pointer;
+        }
+        .video-iframe {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Landslide Susceptibility Mapping</h1>
+        <h1>Welcome to Landslide Susceptibility Mapping</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -20,29 +62,28 @@
     </header>
     <main>
         <section>
-            <h2>Data Acquisition and Preparation</h2>
-            <p>Landslide Inventory: A crucial first step is collecting data on past landslides in the area. This data can come from historical records, field surveys, or remote sensing techniques like satellite imagery.</p>
-            <p>Terrain Data: Detailed information on the physical landscape is vital. This includes data on:</p>
-            <ul>
-                <li>Slope: Steeper slopes are generally more susceptible.</li>
-                <li>Aspect: South-facing slopes in the Northern Hemisphere tend to receive more sunlight, leading to drier conditions and potentially increased risk.</li>
-                <li>Elevation: Landslides are more common in mountainous regions.</li>
-                <li>Drainage: Areas with poor drainage or high water saturation are more prone.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Map Validation and Refinement</h2>
-            <p>The accuracy of the model is assessed by comparing predicted landslide susceptibility with actual landslide occurrences. The model may be refined based on the validation results, and the map is updated accordingly.</p>
-        </section>
-        <section>
-            <h2>Susceptibility vs. Hazard vs. Risk</h2>
-            <p><strong>Susceptibility:</strong> Likelihood of a landslide occurring.</p>
-            <p><strong>Hazard:</strong> Potential for damage or loss from a landslide event (combines susceptibility and the presence of elements at risk like buildings or infrastructure).</p>
-            <p><strong>Risk:</strong> The combination of susceptibility and vulnerability (potential for loss).</p>
+            <h2>Watch Our Video</h2>
+            <div class="video-container">
+                <img src="https://example.com/thumbnail.jpg" alt="Video Thumbnail" width="100%"> <!-- Replace with your video thumbnail image URL -->
+                <div class="play-button" onclick="playVideo()"></div>
+                <iframe class="video-iframe" src="https://www.youtube.com/embed/N-gXK72VMWs?autoplay=0" frameborder="0" allowfullscreen></iframe> <!-- Replace with your YouTube video URL -->
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
+    
+    <script>
+        function playVideo() {
+            var iframe = document.querySelector('.video-iframe');
+            var thumbnail = document.querySelector('.video-container img');
+            var playButton = document.querySelector('.play-button');
+            
+            iframe.style.display = 'block';
+            thumbnail.style.display = 'none';
+            playButton.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
