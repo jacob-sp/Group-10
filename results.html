@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results - Landslide Susceptibility Mapping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,6 +46,7 @@
         .image-box img {
             max-width: 100%;
             height: auto;
+            cursor: pointer;
         }
         .image-box h2 {
             font-size: 1.2em;
@@ -78,28 +80,29 @@
         <div class="image-container">
             <div class="image-box">
                 <h2>Aspect</h2>
-                <img src="ASPECT.png" alt="Aspect">
+                <a href="ASPECT.png" data-lightbox="results" data-title="Aspect"><img src="ASPECT.png" alt="Aspect"></a>
             </div>
             <div class="image-box">
                 <h2>Slope</h2>
-                <img src="SLOPE1.png" alt="Slope">
+                <a href="SLOPE1.png" data-lightbox="results" data-title="Slope"><img src="SLOPE1.png" alt="Slope"></a>
             </div>
             <div class="image-box">
                 <h2>DTM</h2>
-                <img src="DTM.png" alt="DTM">
+                <a href="DTM.png" data-lightbox="results" data-title="DTM"><img src="DTM.png" alt="DTM"></a>
             </div>
             <div class="image-box">
                 <h2>NDVI</h2>
-                <img src="NDVI.png" alt="NDVI">
+                <a href="NDVI.png" data-lightbox="results" data-title="NDVI"><img src="NDVI.png" alt="NDVI"></a>
             </div>
             <div class="image-box">
                 <h2>Landslide Susceptibility Map</h2>
-                <img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map">
+                <a href="LANDSLIDE SUSCEPTIBILITY MAP.png" data-lightbox="results" data-title="Landslide Susceptibility Map"><img src="LANDSLIDE SUSCEPTIBILITY MAP.png" alt="Landslide Susceptibility Map"></a>
             </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
