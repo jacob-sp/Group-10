@@ -13,18 +13,20 @@
         }
         main {
             margin: 20px;
-            text-align: justify;
+            display: flex;
+            align-items: center;
         }
         .image-container {
-            max-width: 800px; /* Adjust the maximum width as needed */
-            margin: 0 auto;
+            max-width: 50%; /* Adjust the maximum width as needed */
+            margin-right: 20px;
         }
         .image-container img {
             display: block;
-            margin: 0 auto;
             max-width: 100%;
-            max-height: 400px; /* Adjust the maximum height as needed */
             height: auto;
+        }
+        .content {
+            flex: 1;
         }
     </style>
 </head>
@@ -44,14 +46,16 @@
         <div class="image-container">
             <img src="Landslide image.jpg" alt="Landslide Image">
         </div>
-        <section>
-            <h2>Introduction</h2>
-            <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides can be triggered by various factors, including heavy rainfall, earthquakes, volcanic activity, slope instability, and human activities such as deforestation or improper land use.</p>
-        </section>
-        <section>
-            <h2>Factors Contributing to Landslides</h2>
-            <p>Landslides can occur due to several factors. The most common triggers are excessive rainfall or water accumulation, which increases the weight and pore pressure in the soil or rock, reducing its stability. Earthquakes can also induce landslides by shaking the ground and destabilizing slopes. Other factors include slope angle, geology, vegetation cover, human activities that alter the natural stability of slopes, and changes in groundwater levels.</p>
-        </section>
+        <div class="content">
+            <section>
+                <h2>Introduction</h2>
+                <p>A landslide refers to the rapid movement of a mass of soil, rock, or debris down a slope. It is a natural disaster that can cause significant damage to property, infrastructure, and human life. Landslides can be triggered by various factors, including heavy rainfall, earthquakes, volcanic activity, slope instability, and human activities such as deforestation or improper land use.</p>
+            </section>
+            <section>
+                <h2>Factors Contributing to Landslides</h2>
+                <p>Landslides can occur due to several factors. The most common triggers are excessive rainfall or water accumulation, which increases the weight and pore pressure in the soil or rock, reducing its stability. Earthquakes can also induce landslides by shaking the ground and destabilizing slopes. Other factors include slope angle, geology, vegetation cover, human activities that alter the natural stability of slopes, and changes in groundwater levels.</p>
+            </section>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
