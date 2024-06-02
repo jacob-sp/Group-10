@@ -8,14 +8,34 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            margin: 20px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
         }
         .image-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .image-container div {
             margin: 10px;
+            flex: 1 0 21%; /* Adjust to have 4 images per row */
+            box-sizing: border-box;
         }
         .image-container img {
             max-width: 100%;
@@ -26,6 +46,14 @@
 <body>
     <header>
         <h1>Results</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <div class="image-container">
