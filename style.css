@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif; /* Changed font to Roboto for a modern look */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Changed font for a modern look */
     background-color: #f8f8f8; /* Light gray background */
 }
 
@@ -21,13 +21,14 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 15px; /* Increased margin for better spacing */
+    margin-right: 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold; /* Added bold font weight */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase navigation links */
 }
 
 nav ul li a:hover {
@@ -35,17 +36,68 @@ nav ul li a:hover {
 }
 
 main {
-    margin: 20px auto; /* Center main content */
-    max-width: 800px; /* Set maximum width for better readability */
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-footer {
-    background-color: #2c3e50; /* Dark blue background */
+.footer-container {
+    background-color: #2c3e50; /* Dark blue background for footer */
     color: white;
     text-align: center;
     padding: 1em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    font-size: 0.8em; /* Reduced font size for footer */
+    margin-top: 20px;
+}
+
+.footer-container p {
+    margin: 0;
+}
+
+.section-container {
+    background-color: white; /* White background for sections */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section-container h2 {
+    color: #2c3e50; /* Dark blue text color for section headings */
+}
+
+.section-container p {
+    color: #555; /* Dark gray text color for paragraphs */
+}
+
+.image-container img, .video-container img {
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.blog-section {
+    background-color: #f2f2f2; /* Light gray background for blog section */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.blog-post {
+    background-color: white; /* White background for blog posts */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.blog-post img {
+    border-radius: 8px; /* Rounded corners for blog post images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.blog-post a {
+    color: #2c3e50; /* Dark blue text color for blog post links */
+    text-decoration: none;
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
 }
