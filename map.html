@@ -69,7 +69,7 @@
     </footer>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([45.69653, 8.88176], 6); // Centered on the coordinates provided
+        var map = L.map('map').setView([41.9028, 12.4964], 6); // Centered on Italy with zoom level 6
 
         // Base map layer
         var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -84,35 +84,57 @@
                 layers: 'gisgeoserver_10:ITA_adm1',
                 format: 'image/png',
                 transparent: true,
-                version: '1.1.0', 
-                attribution: "© GeoServer",
-                bounds: [[44.8, 6.6], [47.1, 10.1]] // Adjust bounds according to the layer extent
+                version: '1.1.0', // you might need to adjust the version based on your GeoServer configuration
+                attribution: "© GeoServer"
             }),
             "Slope": L.tileLayer.wms(geoServerUrl, {
                 layers: 'gisgeoserver_10:Slope',
                 format: 'image/png',
                 transparent: true,
                 version: '1.1.0',
-                attribution: "© GeoServer",
-                bounds: [[44.8, 6.6], [47.1, 10.1]]
+                attribution: "© GeoServer"
             }),
             "Aspect": L.tileLayer.wms(geoServerUrl, {
                 layers: 'gisgeoserver_10:Aspect',
                 format: 'image/png',
                 transparent: true,
                 version: '1.1.0',
-                attribution: "© GeoServer",
-                bounds: [[44.8, 6.6], [47.1, 10.1]]
+                attribution: "© GeoServer"
             }),
-            // Add other layers with their bounds
-            // ...
+            "DTM": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:DTM',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "NDVI": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:NDVI',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "Roads": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Roads',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "Rivers": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Rivers',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
             "Landslide Susceptibility Map": L.tileLayer.wms(geoServerUrl, {
                 layers: 'gisgeoserver_10:Landslide Susceptibility Map',
                 format: 'image/png',
                 transparent: true,
                 version: '1.1.0',
-                attribution: "© GeoServer",
-                bounds: [[44.8, 6.6], [47.1, 10.1]]
+                attribution: "© GeoServer"
             })
         };
 
@@ -132,7 +154,7 @@
 
         // Add event listener to zoom the map when a layer is added
         map.on('layeradd', function(event) {
-            map.fitBounds(event.layer.options.bounds);
+            map.fitBounds(event.layer.getBounds());
         });
     </script>
 </body>
