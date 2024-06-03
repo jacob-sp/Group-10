@@ -66,12 +66,12 @@
         // Adding GeoServer WMS layers
         var geoServerUrl = "https://www.gis-geoserver.polimi.it/geoserver/wms";
         var layerNames = [
-            'ITA_Adm1',
-            'Slope',
-            'Aspect',
-            'DTM',
-            'NDVI',
-            'Landslide Susceptibility Map'
+            'gisgeoserver_10:ITA_Adm1',
+            'gisgeoserver_10:Slope',
+            'gisgeoserver_10:Aspect',
+            'gisgeoserver_10:DTM',
+            'gisgeoserver_10:NDVI',
+            'gisgeoserver_10:Landslide_Susceptibility_Map'
         ];
 
         layerNames.forEach(function(layer) {
@@ -79,6 +79,7 @@
                 layers: layer,
                 format: 'image/png',
                 transparent: true,
+                version: '1.1.0', // you might need to adjust the version based on your GeoServer configuration
                 attribution: "© GeoServer"
             }).addTo(map);
         });
