@@ -152,10 +152,12 @@
             coordinatesDiv.innerHTML = 'Lat: ' + lat + ', Lng: ' + lng;
         });
 
-        // Add the layers to the map
-        // for (var layerName in layers) {
-        //     layers[layerName].addTo(map);
-        // }
+        // Add click event listener to each layer to zoom to its extent
+        for (var layerName in layers) {
+            layers[layerName].on('click', function(e) {
+                map.fitBounds(e.target.getBounds());
+            });
+        }
     </script>
 </body>
 </html>
