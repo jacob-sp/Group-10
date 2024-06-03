@@ -47,6 +47,17 @@
             text-align: center;
             padding: 1em 0;
         }
+        /* Custom CSS for the layer control */
+        .leaflet-control-layers-expanded .leaflet-control-layers-list {
+            display: none;
+        }
+        .leaflet-control-layers-toggle {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +75,7 @@
     </header>
     <div id="map"></div>
     <div id="coordinates">Lat: , Lng: </div>
+    <div id="layer-toggle" class="leaflet-control-layers-toggle">Toggle Layers</div>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group 10</p>
     </footer>
@@ -184,6 +196,19 @@
         layerControl.on('overlayadd', function(event) {
             map.fitBounds(event.layer.getBounds());
         });
+
+        // Toggle Layers control
+        var layerToggle = document.getElementById('layer-toggle');
+        var layersContainer = document.getElementsByClassName('leaflet-control-layers-list')[0];
+
+        layerToggle.addEventListener('click', function() {
+            if (layersContainer.style.display === 'none') {
+                layersContainer.style.display = 'block';
+            } else {
+                layersContainer.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
+
