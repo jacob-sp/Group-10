@@ -59,30 +59,68 @@
     <script>
         var map = L.map('map').setView([41.9028, 12.4964], 6); // Centered on Italy with zoom level 6
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // Base map layer
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Adding GeoServer WMS layers
+        // GeoServer WMS layers
         var geoServerUrl = "https://www.gis-geoserver.polimi.it/geoserver/wms";
-        var layerNames = [
-            'gisgeoserver_10:ITA_Adm1',
-            'gisgeoserver_10:Slope',
-            'gisgeoserver_10:Aspect',
-            'gisgeoserver_10:DTM',
-            'gisgeoserver_10:NDVI',
-            'gisgeoserver_10:Landslide_Susceptibility_Map'
-        ];
-
-        layerNames.forEach(function(layer) {
-            L.tileLayer.wms(geoServerUrl, {
-                layers: layer,
+        
+        var layers = {
+            "ITA_Adm1": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:ITA_Adm1',
                 format: 'image/png',
                 transparent: true,
                 version: '1.1.0', // you might need to adjust the version based on your GeoServer configuration
                 attribution: "© GeoServer"
-            }).addTo(map);
-        });
-    </script>
+            }),
+            "Slope": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Slope',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "Aspect": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Aspect',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "DTM": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:DTM',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "NDVI": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:NDVI',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            "Landslide Susceptibility Map": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Landslide_Susceptibility_Map',
+                format: 'image/png',
+                transparent: true,
+version: '1.1.0',
+attribution: "© GeoServer"
+})
+};
+            // Add layer control to the map
+    L.control.layers(null, layers, {
+        collapsed: false,
+        position: 'topright'
+    }).addTo(map);
+
+    // Add the layers to the map
+    for (var layerName in layers) {
+        layers[layerName].addTo(map);
+    }
+</script>
 </body>
 </html>
