@@ -6,6 +6,7 @@
     <title>Map - Landslide Susceptibility Mapping Group 10</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         #map {
             height: calc(100vh - 40px); /* Adjusted for the height of the coordinates div */
@@ -65,6 +66,9 @@
         .toggle-button.open {
             background-color: #FF5733; /* Change color when open */
         }
+        .toggle-button i {
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -85,7 +89,7 @@
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group 10</p>
     </footer>
-    <button id="toggle-button" class="toggle-button">Layers</button>
+    <button id="toggle-button" class="toggle-button"><i class="fas fa-eye"></i></button>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([45.65623, 8.90511], 10); // Centered on Italy with zoom level 10
@@ -211,11 +215,11 @@
             if (controlContainer.style.display === 'none' || controlContainer.style.display === '') {
                 controlContainer.style.display = 'block';
                 toggleButton.classList.add('open');
-                toggleButton.innerText = 'Hide Layers';
+                toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
             } else {
                 controlContainer.style.display = 'none';
                 toggleButton.classList.remove('open');
-                toggleButton.innerText = 'Show Layers';
+                toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
             }
         });
     </script>
