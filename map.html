@@ -20,6 +20,7 @@
             border-radius: 5px;
             font-family: Arial, sans-serif;
             font-size: 14px;
+            z-index: 1000;
         }
         header {
             background-color: #4CAF50;
@@ -129,7 +130,7 @@
                 attribution: "© GeoServer"
             }),
             "Landslide Susceptibility Map": L.tileLayer.wms(geoServerUrl, {
-                layers: 'gisgeoserver_10:Landslide_Susceptibility_Map',
+                layers: 'gisgeoserver_10:Landslide Susceptibility Map',
                 format: 'image/png',
                 transparent: true,
                 version: '1.1.0',
