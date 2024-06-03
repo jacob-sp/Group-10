@@ -57,11 +57,31 @@
     </footer>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        var map = L.map('map').setView([41.9028, 12.4964], 6); // Centered on Italy with zoom level 6
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
+        // Adding GeoServer WMS layers
+        var geoServerUrl = "https://www.gis-geoserver.polimi.it/geoserver/wms";
+        var layerNames = [
+            'ITA_Adm1',
+            'Slope',
+            'Aspect',
+            'DTM',
+            'NDVI',
+            'Landslide Susceptibility Map'
+        ];
+
+        layerNames.forEach(function(layer) {
+            L.tileLayer.wms(geoServerUrl, {
+                layers: layer,
+                format: 'image/png',
+                transparent: true,
+                attribution: "© GeoServer"
+            }).addTo(map);
+        });
     </script>
 </body>
 </html>
