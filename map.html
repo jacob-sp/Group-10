@@ -49,7 +49,7 @@
             padding: 1em 0;
         }
         .leaflet-control-layers {
-            display: none;
+            display: none; /* Initially hide the layer control */
         }
         .toggle-button {
             position: absolute;
@@ -103,26 +103,11 @@
             attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
         });
 
-        var cartoDBVoyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        });
-
-        var stamenToner = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-        });
-
-        var baseLayers = {
-            "OpenStreetMap": osm,
-            "Esri World Imagery": esriImagery,
-            "CartoDB Voyager": cartoDBVoyager,
-            "Stamen Toner": stamenToner
-        };
-
-        map.addLayer(osm); // Add the default base layer
+        osm.addTo(map);
 
         // GeoServer WMS layers
         var geoServerUrl = "https://www.gis-geoserver.polimi.it/geoserver/wms";
-        
+
         var layers = {
             "ITA_adm1": L.tileLayer.wms(geoServerUrl, {
                 layers: 'gisgeoserver_10:ITA_adm1',
@@ -190,6 +175,11 @@
         };
 
         // Add layer control to the map
+        var baseLayers = {
+            "OpenStreetMap": osm,
+            "ESRI Imagery": esriImagery
+        };
+
         var layerControl = L.control.layers(baseLayers, layers, {
             collapsed: false,
             position: 'topright'
