@@ -5,39 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map - Landslide Susceptibility Mapping</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Add any additional stylesheets or scripts for your map here -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        /* Add specific styles for the map page */
-        /* You can customize this section based on your requirements */
-        /* For example, defining the map container size, styles for map elements, etc. */
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Map</h1>
+        <h1>Landslide Susceptibility Mapping</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="results.html">Results</a></li>
+                <li><a href="map.html">Map</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <!-- Add a link to the map page if needed -->
             </ul>
         </nav>
     </header>
-    <main>
-        <!-- Add your map content here -->
-        <!-- You can embed a map using services like Google Maps or Leaflet.js -->
-        <!-- Here's an example using Google Maps Embed API -->
-        <iframe
-            width="600"
-            height="450"
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN1t_tDeuEmsRUsoyG83frY4&key=YOUR_API_KEY" allowfullscreen>
-        </iframe>
-    </main>
+    <div id="map"></div>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    </script>
 </body>
 </html>
