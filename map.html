@@ -47,6 +47,24 @@
             text-align: center;
             padding: 1em 0;
         }
+        .leaflet-control-layers {
+            display: none;
+        }
+        .toggle-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .toggle-button.open {
+            background-color: #FF5733; /* Change color when open */
+        }
     </style>
 </head>
 <body>
@@ -67,6 +85,7 @@
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group 10</p>
     </footer>
+    <button id="toggle-button" class="toggle-button">Layers</button>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([45.65623, 8.90511], 10); // Centered on Italy with zoom level 10
@@ -183,6 +202,21 @@
         // Add event listener to zoom the map when a layer is added
         layerControl.on('overlayadd', function(event) {
             map.fitBounds(event.layer.getBounds());
+        });
+
+        // Toggle button functionality
+        var toggleButton = document.getElementById('toggle-button');
+        toggleButton.addEventListener('click', function() {
+            var controlContainer = document.querySelector('.leaflet-control-layers');
+            if (controlContainer.style.display === 'none' || controlContainer.style.display === '') {
+                controlContainer.style.display = 'block';
+                toggleButton.classList.add('open');
+                toggleButton.innerText = 'Hide Layers';
+            } else {
+                controlContainer.style.display = 'none';
+                toggleButton.classList.remove('open');
+                toggleButton.innerText = 'Show Layers';
+            }
         });
     </script>
 </body>
