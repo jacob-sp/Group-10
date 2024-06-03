@@ -139,4 +139,23 @@
         };
 
         // Add layer control to the map
-        var layerControl = L.control
+        var layerControl = L.control.layers(null, layers, {
+            collapsed: false,
+            position: 'topright'
+        }).addTo(map);
+
+        // Show coordinates on mouse move
+        var coordinatesDiv = document.getElementById('coordinates');
+        map.on('mousemove', function(e) {
+            var lat = e.latlng.lat.toFixed(5);
+            var lng = e.latlng.lng.toFixed(5);
+            coordinatesDiv.innerHTML = 'Lat: ' + lat + ', Lng: ' + lng
+        });
+
+        // Add event listener to zoom the map when a layer is added
+        layerControl.on('overlayadd', function(event) {
+            map.fitBounds(event.layer.getBounds());
+        });
+    </script>
+</body>
+</html>
