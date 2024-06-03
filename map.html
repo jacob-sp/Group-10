@@ -71,10 +71,31 @@
     <script>
         var map = L.map('map').setView([45.65623, 8.90511], 10); // Centered on Italy with zoom level 10
 
-        // Base map layer
+        // Base map layers
         var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+        });
+
+        var esriImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        });
+
+        var cartoDBVoyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        });
+
+        var stamenToner = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+        });
+
+        var baseLayers = {
+            "OpenStreetMap": osm,
+            "Esri World Imagery": esriImagery,
+            "CartoDB Voyager": cartoDBVoyager,
+            "Stamen Toner": stamenToner
+        };
+
+        map.addLayer(osm); // Add the default base layer
 
         // GeoServer WMS layers
         var geoServerUrl = "https://www.gis-geoserver.polimi.it/geoserver/wms";
@@ -146,7 +167,7 @@
         };
 
         // Add layer control to the map
-        var layerControl = L.control.layers(null, layers, {
+        var layerControl = L.control.layers(baseLayers, layers, {
             collapsed: false,
             position: 'topright'
         }).addTo(map);
@@ -156,7 +177,7 @@
         map.on('mousemove', function(e) {
             var lat = e.latlng.lat.toFixed(5);
             var lng = e.latlng.lng.toFixed(5);
-            coordinatesDiv.innerHTML = 'Lat: ' + lat + ', Lng: ' + lng
+            coordinatesDiv.innerHTML = 'Lat: ' + lat + ', Lng: ' + lng;
         });
 
         // Add event listener to zoom the map when a layer is added
