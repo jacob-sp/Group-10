@@ -11,6 +11,16 @@
             height: 100vh;
             width: 100%;
         }
+        #coordinates {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
         header {
             background-color: #4CAF50;
             color: white;
@@ -52,6 +62,7 @@
         </nav>
     </header>
     <div id="map"></div>
+    <div id="coordinates">Lat: , Lng: </div>
     <footer>
         <p>&copy; 2024 Landslide Susceptibility Mapping Group</p>
     </footer>
@@ -118,7 +129,7 @@
                 attribution: "© GeoServer"
             }),
             "Landslide Susceptibility Map": L.tileLayer.wms(geoServerUrl, {
-                layers: 'gisgeoserver_10:Landslide Susceptibility Map',
+                layers: 'gisgeoserver_10:Landslide_Susceptibility_Map',
                 format: 'image/png',
                 transparent: true,
                 version: '1.1.0',
@@ -131,6 +142,14 @@
             collapsed: false,
             position: 'topright'
         }).addTo(map);
+
+        // Show coordinates on mouse move
+        var coordinatesDiv = document.getElementById('coordinates');
+        map.on('mousemove', function(e) {
+            var lat = e.latlng.lat.toFixed(5);
+            var lng = e.latlng.lng.toFixed(5);
+            coordinatesDiv.innerHTML = 'Lat: ' + lat + ', Lng: ' + lng;
+        });
 
         // Add the layers to the map
         // for (var layerName in layers) {
