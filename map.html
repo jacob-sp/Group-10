@@ -103,6 +103,22 @@
                 version: '1.1.0',
                 attribution: "© GeoServer"
             }),
+            }),
+            "Roads": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Roads',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
+            }),
+            "Rivers": L.tileLayer.wms(geoServerUrl, {
+                layers: 'gisgeoserver_10:Rivers',
+                format: 'image/png',
+                transparent: true,
+                version: '1.1.0',
+                attribution: "© GeoServer"
+            }),
             "Landslide Susceptibility Map": L.tileLayer.wms(geoServerUrl, {
                 layers: 'gisgeoserver_10:Landslide_Susceptibility_Map',
                 format: 'image/png',
@@ -110,7 +126,7 @@
                 version: '1.1.0',
                 attribution: "© GeoServer"
             })
-};
+            };
             // Add layer control to the map
     L.control.layers(null, layers, {
         collapsed: false,
