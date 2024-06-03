@@ -139,7 +139,7 @@
         };
 
         // Add layer control to the map
-        L.control.layers(null, layers, {
+        var layerControl = L.control.layers(null, layers, {
             collapsed: false,
             position: 'topright'
         }).addTo(map);
@@ -153,9 +153,10 @@
         });
 
         // Add event listener to zoom the map when a layer is added
-        map.on('layeradd', function(event) {
+        layerControl.on('overlayadd', function(event) {
             map.fitBounds(event.layer.getBounds());
         });
     </script>
 </body>
 </html>
+
